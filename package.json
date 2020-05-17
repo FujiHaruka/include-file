@@ -28,6 +28,7 @@
     "url": "git+https://github.com/FujiHaruka/include-file.git"
   },
   "scripts": {
+    "readme": "./cli.js doc/entry.md README.md",
     "format": "prettier --write *.js test/**/*.js",
     "test": "mocha test/lib"
   },

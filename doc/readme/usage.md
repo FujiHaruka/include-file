@@ -1,15 +1,3 @@
-<!-- README.md is generated automatically. DO NOT edit manually. -->
-
-# include-file
-
-A Node.js library to build a documentation file by "including" other text files.
-
-## Installation
-
-```
-$ npm install include-file
-```
-
 ## Usage
 
 This library supports just one syntax to include other files: `$include <relative file path>`.
@@ -17,25 +5,13 @@ This library supports just one syntax to include other files: `$include <relativ
 For example, here is `entry.md` file as below.
 
 ```markdown
-# some-awsome-library
-
-This is a description.
-
-$include ./installation.md
-
-## Lisence
-
-MIT License.
+$include ./example1.md
 ```
 
 And here is `installation.md` file in the same directory as below.
 
 ````markdown
-## Installation
-
-```
-$ npm install some-awesome-ibrary
-```
+$include ./example2.md
 ````
 
 Then, you can build `README.md` by using `include-file` CLI.
@@ -47,20 +23,7 @@ $ include-file ./entry.md README.md
 Here is content of `README.md`.
 
 ````markdown
-# some-awsome-library
-
-This is a description.
-
-## Installation
-
-```
-$ npm install some-awesome-ibrary
-```
-
-## Lisence
-
-MIT License.
-
+$include ./example-result.md
 ````
 
 That's it.
