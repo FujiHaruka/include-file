@@ -4,6 +4,8 @@ const { EOL } = require('os')
 
 const parseIncludePaths = (content) =>
   [...content.matchAll(/^\$include (.+)/gm)].map(([, filePath]) => filePath)
+const escapeIncludePaths = (content) =>
+  content.replace(/^\$\$include /gm, '$include ')
 
 const replaceInclusions = (content, inclusions) => {
   let replaced = content
@@ -32,7 +34,8 @@ const includeRecursively = async (filePath) => {
     ),
   )
   const replaced = replaceInclusions(content, inclusions)
-  return replaced
+  const result = escapeIncludePaths(replaced)
+  return result
 }
 
 /**

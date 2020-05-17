@@ -39,4 +39,18 @@ This is usage 2.
     const entry = path.join(__dirname, '../fixtures/entry3.md')
     await assert.rejects(() => includeFile(entry))
   })
+
+  it('should escape ^$$include', async () => {
+    const entry = path.join(__dirname, '../fixtures/entry4.md')
+    const content = await includeFile(entry)
+    assert.equal(content.trim(), `
+## Installation
+
+\`\`\`
+$ npm install some-awsome-library
+\`\`\`
+
+$include ./docs/installation.md
+`.trim())
+  })
 })
