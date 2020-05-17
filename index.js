@@ -3,14 +3,14 @@ const path = require('path')
 const { EOL } = require('os')
 
 const parseIncludePaths = (content) =>
-  [...content.matchAll(/^\$include (.+)/gm)].map(([, filePath]) => filePath)
+  [...content.matchAll(/^\$include\s+(.+)/gm)].map(([, filePath]) => filePath)
 const escapeIncludePaths = (content) =>
-  content.replace(/^\$\$include /gm, '$include ')
+  content.replace(/^\$\$include\s/gm, '$include ')
 
 const replaceInclusions = (content, inclusions) => {
   let replaced = content
   for (const { includePath, content } of inclusions) {
-    const pattern = new RegExp(`^\\$include ${includePath}${EOL}?`, 'gm')
+    const pattern = new RegExp(`^\\$include\\s+${includePath}${EOL}?`, 'gm')
     replaced = replaced.replace(pattern, content)
   }
   return replaced

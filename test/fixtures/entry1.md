@@ -2,4 +2,4 @@
 
 $include ./docs/installation.md
 
-$include ./docs/usage.md
+$include  ./docs/usage.md
