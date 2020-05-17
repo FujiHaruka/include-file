@@ -10,16 +10,16 @@ $ npm install include-file
 
 ## Usage
 
-This library supports just one syntax to include other files: `@include <relative file path>`.
+This library supports just one syntax to include other files: `$include <relative file path>`.
 
-For example, here is `entrypoint.md` file as below.
+For example, here is `entry.md` file as below.
 
 ```markdown
 # some-awsome-library
 
 This is a description.
 
-@include ./installation.md
+$include ./installation.md
 
 ## Lisence
 
@@ -39,7 +39,7 @@ $ npm install some-awesome-ibrary
 Then, you can build `README.md` by using `include-file` CLI.
 
 ```console
-$ include-file ./entrypoint.md README.md
+$ include-file ./entry.md README.md
 ```
 
 Here is content of `README.md`.
