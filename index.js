@@ -18,12 +18,17 @@ const includeRecursively = async (filePath) => {
   const content = await fs.readFile(filePath, 'utf-8')
   const includePaths = parseIncludePaths(content)
   const baseDir = path.dirname(path.resolve(filePath))
-  const inclusions = await Promise.all(
+  let inclusions
+  inclusions = await Promise.all(
     includePaths.map((includePath) =>
       includeRecursively(path.join(baseDir, includePath)).then((content) => ({
         includePath,
         content,
-      })),
+      })).catch(e => {
+        e.includeFailed = true
+        e.messages = (e.messages || []).concat(`  at "$include ${includePath}" in ${path.relative(process.cwd(),filePath)}`)
+        throw e
+      }),
     ),
   )
   const replaced = replaceInclusions(content, inclusions)
@@ -38,7 +43,15 @@ const includeRecursively = async (filePath) => {
 async function includeFile(entryPath, options = {}) {
   const { dest, stdout = false } = options
 
-  const result = await includeRecursively(entryPath)
+  let result
+  try {
+    result = await includeRecursively(entryPath)
+  } catch (e) {
+    if (e.includeFailed) {
+      e.message = [`Faield to include a file;\n${e.message}`, ...e.messages].join(EOL)
+    }
+    throw e
+  }
   if (dest) {
     await fs.writeFile(dest, result)
   }
