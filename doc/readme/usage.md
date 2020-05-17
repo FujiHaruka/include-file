@@ -34,3 +34,5 @@ $include ./example-result.md
 That's it.
 
 The responsibility of this library is building a file from a entrypoint file including other files. You can use any markup languages or other template engines with it.
+
+You can see an example in this README file itself. It is generated from [./doc](./doc) directory.
