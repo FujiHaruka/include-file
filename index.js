@@ -23,14 +23,21 @@ const includeRecursively = async (filePath) => {
   let inclusions
   inclusions = await Promise.all(
     includePaths.map((includePath) =>
-      includeRecursively(path.join(baseDir, includePath)).then((content) => ({
-        includePath,
-        content,
-      })).catch(e => {
-        e.includeFailed = true
-        e.messages = (e.messages || []).concat(`  at "$include ${includePath}" in ${path.relative(process.cwd(),filePath)}`)
-        throw e
-      }),
+      includeRecursively(path.join(baseDir, includePath))
+        .then((content) => ({
+          includePath,
+          content,
+        }))
+        .catch((e) => {
+          e.includeFailed = true
+          e.messages = (e.messages || []).concat(
+            `  at "$include ${includePath}" in ${path.relative(
+              process.cwd(),
+              filePath,
+            )}`,
+          )
+          throw e
+        }),
     ),
   )
   const replaced = replaceInclusions(content, inclusions)
@@ -41,25 +48,19 @@ const includeRecursively = async (filePath) => {
 /**
  * Resolve `$include` and build a file content.
  * @param {string} entryPath - the entrypoint file path
- * @param {object} options - options
  */
-async function includeFile(entryPath, options = {}) {
-  const { dest, stdout = false } = options
-
+async function includeFile(entryPath) {
   let result
   try {
     result = await includeRecursively(entryPath)
   } catch (e) {
     if (e.includeFailed) {
-      e.message = [`Faield to include a file;\n${e.message}`, ...e.messages].join(EOL)
+      e.message = [
+        `Faield to include a file;\n${e.message}`,
+        ...e.messages,
+      ].join(EOL)
     }
     throw e
-  }
-  if (dest) {
-    await fs.writeFile(dest, result)
-  }
-  if (stdout) {
-    process.stdout.write(result)
   }
   return result
 }

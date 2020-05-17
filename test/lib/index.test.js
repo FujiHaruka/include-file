@@ -29,10 +29,13 @@ This is usage 2.
   it('should ignore inclusion when it is not on the line head', async () => {
     const entry = path.join(__dirname, '../fixtures/entry2.md')
     const content = await includeFile(entry)
-    assert.equal(content.trim(), `
+    assert.equal(
+      content.trim(),
+      `
 // space at the line head
  $include ./docs/installation.md
-`.trim())
+`.trim(),
+    )
   })
 
   it('should throw an error when it includes a path which is not a file', async () => {
@@ -43,7 +46,9 @@ This is usage 2.
   it('should escape ^$$include', async () => {
     const entry = path.join(__dirname, '../fixtures/entry4.md')
     const content = await includeFile(entry)
-    assert.equal(content.trim(), `
+    assert.equal(
+      content.trim(),
+      `
 ## Installation
 
 \`\`\`
@@ -51,6 +56,7 @@ $ npm install some-awsome-library
 \`\`\`
 
 $include ./docs/installation.md
-`.trim())
+`.trim(),
+    )
   })
 })

@@ -3,7 +3,6 @@
  */
 declare function includeFile(
   entryPath: string,
-  options?: { dest?: string; stdout?: boolean },
 ): Promise<string>
 
 export = includeFile
