@@ -4,7 +4,8 @@
   "description": "A Node.js library to build a documentation file by \"including\" other text files.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "format": "prettier --write *.js test/**/*.js"
   },
   "repository": {
     "type": "git",
@@ -22,5 +23,9 @@
   "bugs": {
     "url": "https://github.com/FujiHaruka/include-file/issues"
   },
-  "homepage": "https://github.com/FujiHaruka/include-file#readme"
+  "homepage": "https://github.com/FujiHaruka/include-file#readme",
+  "devDependencies": {
+    "mocha": "^7.1.2",
+    "prettier": "^2.0.5"
+  }
 }
