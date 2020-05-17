@@ -1,5 +1,5 @@
 {
-  "name": "include-file",
+  "name": "include-file-cli",
   "description": "A Node.js library to build a documentation file by \"including\" other text files.",
   "version": "1.0.0",
   "author": "FujiHaruka",
@@ -7,7 +7,7 @@
     "include-file": "./cli.js"
   },
   "bugs": {
-    "url": "https://github.com/FujiHaruka/include-file/issues"
+    "url": "https://github.com/FujiHaruka/node-include-file/issues"
   },
   "dependencies": {
     "minimist": "^1.2.5"
@@ -16,7 +16,7 @@
     "mocha": "^7.1.2",
     "prettier": "^2.0.5"
   },
-  "homepage": "https://github.com/FujiHaruka/include-file#readme",
+  "homepage": "https://github.com/FujiHaruka/node-include-file#readme",
   "keywords": [
     "documentation",
     "files",
@@ -27,7 +27,7 @@
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/FujiHaruka/include-file.git"
+    "url": "git+https://github.com/FujiHaruka/node-include-file.git"
   },
   "scripts": {
     "format": "prettier --write *.js test/**/*.js",

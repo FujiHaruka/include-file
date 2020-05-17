@@ -1,6 +1,6 @@
 <!-- README.md is generated automatically. DO NOT edit manually. -->
 
-# include-file
+# include-file-cli
 
 A Node.js library to build a documentation file by "including" other text files.
 

@@ -22,7 +22,7 @@ $include ./example2.md
 Then, you can create the `README.md` file by using `include-file` CLI.
 
 ```console
-$ npx include-file ./entry.md README.md
+$ npx include-file-cli ./entry.md README.md
 ```
 
 Here is the content of `README.md`.

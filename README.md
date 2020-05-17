@@ -1,6 +1,6 @@
 <!-- README.md is generated automatically. DO NOT edit manually. -->
 
-# include-file
+# include-file-cli
 
 A Node.js library to build a documentation file by "including" other text files.
 
@@ -46,7 +46,7 @@ $ npm install some-awesome-ibrary
 Then, you can create the `README.md` file by using `include-file` CLI.
 
 ```console
-$ npx include-file ./entry.md README.md
+$ npx include-file-cli ./entry.md README.md
 ```
 
 Here is the content of `README.md`.
