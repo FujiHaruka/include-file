@@ -3,6 +3,9 @@
   "description": "A Node.js library to build a documentation file by \"including\" other text files.",
   "version": "1.0.0",
   "author": "FujiHaruka",
+  "bin": {
+    "include-file": "./cli.js"
+  },
   "bugs": {
     "url": "https://github.com/FujiHaruka/include-file/issues"
   },
@@ -18,7 +21,6 @@
     "documentation",
     "files",
     "include",
-    "markdown",
     "template engine"
   ],
   "license": "MIT",
@@ -28,8 +30,8 @@
     "url": "git+https://github.com/FujiHaruka/include-file.git"
   },
   "scripts": {
-    "readme": "./cli.js doc/entry.md README.md",
     "format": "prettier --write *.js test/**/*.js",
+    "readme": "./cli.js doc/entry.md README.md",
     "test": "mocha test/lib"
   },
   "types": "index.d.ts"
