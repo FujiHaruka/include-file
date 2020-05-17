@@ -4,6 +4,6 @@
 
 A Node.js library to build a documentation file by "including" other text files.
 
-$include ./readme/installation.md
+$include ./readme/short-usage.md
 
 $include ./readme/usage.md

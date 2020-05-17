@@ -4,17 +4,17 @@
 
 A Node.js library to build a documentation file by "including" other text files.
 
-## Installation
+## Short Usage
 
 ```
-$ npm install include-file
+$ npx include-file <entrypoint_file> <dest_file>
 ```
 
 ## Usage
 
-This library supports just one syntax to include other files: `$include <relative file path>`.
+This library supports just one syntax to include other files: `$include <file_path>`.
 
-For example, here is `entry.md` file as below.
+For example, here is a `entry.md` file as below.
 
 ```markdown
 # some-awsome-library
@@ -28,7 +28,12 @@ $include ./installation.md
 MIT License.
 ```
 
-And here is `installation.md` file in the same directory as below.
+The line `$include ./installation.md` means that `./installation.md` file will be included. Notice that
+
+* `$include` declaration must be at the beginning of the line.
+* the included file path is a relative path from the source file.
+
+And here is a `installation.md` file in the same directory as below.
 
 ````markdown
 ## Installation
@@ -38,13 +43,13 @@ $ npm install some-awesome-ibrary
 ```
 ````
 
-Then, you can build `README.md` by using `include-file` CLI.
+Then, you can create the `README.md` file by using `include-file` CLI.
 
 ```console
-$ include-file ./entry.md README.md
+$ npx include-file ./entry.md README.md
 ```
 
-Here is content of `README.md`.
+Here is the content of `README.md`.
 
 ````markdown
 # some-awsome-library
