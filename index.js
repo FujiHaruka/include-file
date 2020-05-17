@@ -4,6 +4,7 @@ const { EOL } = require('os')
 
 const parseIncludePaths = (content) =>
   [...content.matchAll(/^\$include (.+)/gm)].map(([, filePath]) => filePath)
+
 const replaceInclusions = (content, inclusions) => {
   let replaced = content
   for (const { includePath, content } of inclusions) {
@@ -35,10 +36,16 @@ const includeRecursively = async (filePath) => {
  * @param {object} options - options
  */
 async function includeFile(entryPath, options = {}) {
-  const { dest } = options
+  const { dest, stdout = false } = options
 
   const result = await includeRecursively(entryPath)
-  console.log(result)
+  if (dest) {
+    await fs.writeFile(dest, result)
+  }
+  if (stdout) {
+    process.stdout.write(result)
+  }
+  return result
 }
 
 module.exports = includeFile
