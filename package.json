@@ -1,7 +1,7 @@
 {
   "name": "include-file-cli",
   "description": "A Node.js library to build a documentation file by \"including\" other text files.",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "FujiHaruka",
   "bin": {
     "include-file": "./cli.js"
