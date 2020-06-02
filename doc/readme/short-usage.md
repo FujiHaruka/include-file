@@ -1,5 +1,5 @@
 ## Short Usage
 
 ```
-$ npx include-file <entrypoint_file> <dest_file>
+$ npx include-file-cli <entrypoint_file> <dest_file>
 ```

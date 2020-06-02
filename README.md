@@ -7,7 +7,7 @@ A Node.js library to build a documentation file by "including" other text files.
 ## Short Usage
 
 ```
-$ npx include-file <entrypoint_file> <dest_file>
+$ npx include-file-cli <entrypoint_file> <dest_file>
 ```
 
 ## Usage
