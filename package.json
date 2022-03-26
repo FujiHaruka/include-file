@@ -10,7 +10,7 @@
     "url": "https://github.com/FujiHaruka/node-include-file/issues"
   },
   "dependencies": {
-    "minimist": "^1.2.5"
+    "minimist": "^1.2.6"
   },
   "devDependencies": {
     "mocha": "^7.1.2",
