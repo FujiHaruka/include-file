@@ -13,7 +13,7 @@
     "minimist": "^1.2.5"
   },
   "devDependencies": {
-    "mocha": "^7.1.2",
+    "mocha": "^10.2.0",
     "prettier": "^2.0.5"
   },
   "homepage": "https://github.com/FujiHaruka/node-include-file#readme",
